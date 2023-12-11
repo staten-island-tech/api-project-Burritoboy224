@@ -13,4 +13,3 @@ try {
 } catch (error) {
     console.log(error);
 }
-getData (URL);
