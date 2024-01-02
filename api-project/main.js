@@ -14,3 +14,7 @@ try {
 } catch (error) {
     console.log(error);
 }
+
+function insertCard () {
+    data.pokemons.forEach ()
+}
