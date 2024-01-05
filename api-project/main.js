@@ -1,16 +1,31 @@
-import './style.css'
+const URL = `https://pokeapi.co/api/v2/pokemon?limit=649&offset=0`;
 
-const URL = "https://pokeapi.co/api/v2/pokemon?limit=649&offset=0" 
-try {
-    const response = await fetch (URL);
-    if (response.status !=200){
-        throw new error(response.statusText);
-    }
+async function getData(URL) {
+    try {
+        const response = await fetch(URL);
+        if (response.status != 200) {
+            throw new Error(response.statusText);
+        }
+        const get = await response.json();
+        const arrData = get.results;
 
-    const data = await response.json();
-    document.getElementById("api-response").textContent = data.content;
-    console.log(data)
-    document.querySelector("h1").textContent = data.name;
-} catch (error) {
-    console.log(error);
-}
+        console.log(get);
+
+            function insertData() {
+            arrData.forEach((pokemon) => document.querySelector(".cards").insertAdjacentHTML("beforeend",
+            `
+            <div class="card">
+            <h2 class ="description">${pokemon.name}</h2>
+            <img class ="image" src="${pokemon.url}" alt="${pokemon.name}"><br>
+            </div>
+            `
+            ));
+        }
+        insertData();
+
+    } catch (error) {
+        console.log("error", error);
+        document.querySelector(".cards").textContent = "something broke";
+    };
+};
+getData(URL);
