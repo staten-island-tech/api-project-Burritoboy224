@@ -25,7 +25,7 @@ async function getData(URL) {
 
     } catch (error) {
         console.log("error", error);
-        document.querySelector(".cards").textContent = "something broke";
+        document.querySelector(".cards").textContent = "gg u broke it";
     };
 };
 getData(URL);
