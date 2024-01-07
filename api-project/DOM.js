@@ -8,3 +8,5 @@ const DOMSelector = {
     Unova: document.querySelector("#Unova-button"),
     
 }
+
+export { DOMSelectors };
