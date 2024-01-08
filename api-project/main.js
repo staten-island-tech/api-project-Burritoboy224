@@ -1,5 +1,5 @@
 const URL = `https://pokeapi.co/api/v2/pokemon?limit=649&offset=0`;
-
+import "./style.css";
 async function getData(URL) {
     try {
         const response = await fetch(URL);
@@ -37,7 +37,7 @@ async function getData(URL) {
             if (pokemonDetail.length > 0) {
                 insertPokemon(pokemonDetail);
             } else {
-                cardsContainer.innerHTML = "<p>Loser</p>";
+                cardsContainer.innerHTML = "<p>Loser cant even spell the name right LOOOL</p>";
             }
         }
         insertPokemon(await Promise.all(arrData.map(pokemonImage)));

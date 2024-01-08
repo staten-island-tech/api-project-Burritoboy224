@@ -1,8 +1,28 @@
+.body {
+  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fvectors%2Fpokemon-background.html&psig=AOvVaw1yIG8ppW4yG_uRonlKnC5_&ust=1704765502587000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCOi_oOTYzIMDFQAAAAAdAAAAABAE);
+}
+
 .main {
   display: flex;
   justify-content: center;
+  
 }
 .search {
 
   justify-content: center;
 }
+.card {
+  border: 5px solid;
+  border-radius: 75px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
