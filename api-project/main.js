@@ -9,6 +9,7 @@ async function getData(URL) {
         const data = await response.json();
         const arrData = data.results;
 
+
         async function pokemonImage(pokemon) {
             const getResponse = await fetch(pokemon.url);
             const pokemonData = await getResponse.json();
@@ -26,13 +27,16 @@ async function getData(URL) {
                 </div>`
             ));
         }
+        
+       
 
         async function searchPokemon(search) {
             const filterPokemon = arrData.filter(pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase()));
             const pokemonDetail = await Promise.all(filterPokemon.map(pokemonImage));
-            
+           
             const cardsContainer = document.querySelector(".cards");
             cardsContainer.innerHTML = "";
+
 
             if (pokemonDetail.length > 0) {
                 insertPokemon(pokemonDetail);
@@ -42,10 +46,12 @@ async function getData(URL) {
         }
         insertPokemon(await Promise.all(arrData.map(pokemonImage)));
 
+
         const search = document.querySelector("#searchInput");
         search.addEventListener("input", (event) => {
             searchPokemon(event.target.value);
         });
+
 
     } catch (error) {
         console.log("error", error);
@@ -54,3 +60,4 @@ async function getData(URL) {
 }
 
 getData(URL);
+
